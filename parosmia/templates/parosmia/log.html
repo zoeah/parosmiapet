@@ -1,0 +1,51 @@
+{% extends "parosmia/layout.html" %}
+{% block title %}
+My Parosmia Pet - Chat
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<h2> Welcome to Parosmia Pets Chat </h2>
+
+<table id="rcorners_chat_entry" border="0"><tr><td>
+    <form method="POST" class="LogMessage" border="0" id="select_spec_form">
+        <fieldset id="submit_button">
+            {% csrf_token %}
+            <label for="id_message" id="white_instructions">What's on your mind, {{user.first_name }}?</label>
+            <textarea rows="5" cols="120" name="message" maxlength="500" required id="id_message"></textarea>
+            <BR><button type="send" class="save btn btn-default" align=""right">Post</button>
+        </fieldset>
+    </form>
+</td></tr></table>
+{% endblock %}
+{% block content2 %}
+{% load humanize %}
+{% load log_extras %}
+    {% if message_list %}
+        <table border="0">
+            <!tbody>
+            {% for message in message_list %}
+            <tr><td>
+                {% if message.sent_from == user.username %}
+                <table align="right" id="rcorners_chat_history_mine">
+               {% else %}
+                    <table id="rcorners_chat_history_other">
+                {% endif %}
+                        <tr>
+                    <td valign=""middle"><img src="{% static 'parosmia/chat.png' %}" align="left" align="middle"><div class="black_detail">{{ message.sent_from }}</div></td>
+                    <td><div class="black_detail_small">{{ message.log_date | naturaltime }}</div></td>
+                    </tr><td colspan="2">{{ message.message | linebreaks }}</td>
+                </tr>
+            </table>
+        </td></tr>
+            {% endfor %}
+            <!/tbody></tr></td>
+        </table>
+    {% else %}
+        <p>No messages have been sent yet.</p>
+    {% endif %}
+
+    <BR><BR>
+{% endblock %}

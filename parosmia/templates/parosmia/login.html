@@ -1,0 +1,23 @@
+{% extends "parosmia/layout.html" %}
+    {% block title %}
+    My Parosmia Pet - Login
+    {% endblock %}</title>
+
+{% block content %}
+    <p>Welcome to Parosmia Pet - please login for access to additional resources</p>
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+{% endif %}
+    <form method="POST" novalidate>
+        {% csrf_token %}
+        <h2>Login</h2>
+        {{form.as_p}}
+        <input type="submit" value="Login" />
+    </form> 
+    <p>If you don't have an account, please <a href="{% url 'register' %}">Register</a>.</p>
+{% endblock %}
+
+</body>
+</html>

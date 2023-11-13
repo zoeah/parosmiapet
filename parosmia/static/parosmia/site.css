@@ -1,0 +1,196 @@
+
+
+.message {
+    font-weight: 600;
+    color: rgb(70, 104, 215);
+}
+
+.navbar {
+    background-color: rgb(159, 177, 237);
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding: 8px 5px 8px 5px;
+    height: 70px;
+}
+
+.black_detail {
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    vertical-align:middle;
+}
+
+.black_detail_small {
+    font-size: 12px;
+    float:right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    vertical-align:top;
+}
+
+.resource {
+    background-color: rgba(70, 205, 215, 0.441);
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 8px 5px 8px 5px;
+    height: 305px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+.navbar-right {
+    background-color: rgb(70, 104, 215);
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    float: right;
+    padding: 8px 5px 8px 5px;
+}
+
+img {
+    margin-right: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.navbar-brand {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.navbar-item {
+    margin-left: 30px;
+}
+
+.body-content {
+    padding: 10px;
+    font-family:'Lobster','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-content {
+    text-decoration: none;
+    padding: 10px;
+    font-family:'Lobster','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[name=message] {
+    width: 80%;
+}
+
+.message_list th,td {
+    text-align: left;
+    /*float: inline-end;*/
+    padding-right: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    height: 100%;
+}
+tr {
+    vertical-align: top;
+}
+
+
+.left { float: left; }
+.right { float: right; }
+
+#rcorners_food {
+    border-radius: 25px;
+    background: #79EBF9;
+    padding: 20px;
+    width: 450px;
+    height: 75px;
+}
+
+#rcorners_exercise {
+    border-radius: 25px;
+    background: #F9A279;
+    padding: 20px;
+    width: 350px;
+    height: 75px;
+}
+
+#rcorners_meds {
+    border-radius: 25px;
+    background: #F286F9;
+    padding: 20px;
+    width: 450px;
+    height: 75px;
+}
+
+#rcorners_mood {
+    border-radius: 25px;
+    background: #9FF979;
+    padding: 20px;
+    width: 50px;
+    height: 30px;
+}
+
+#rcorners_chat_entry {
+    border-radius: 10px;
+    background: #DCF0D5;
+    padding: 10px;
+    width: 300px;
+    height: 50px;
+}
+
+#rcorners_chat_history_other {
+    border-radius: 10px;
+    background: #dddddd;
+    padding: 5px;
+    width: 55%;
+    height: 50px;
+}
+#rcorners_chat_history_mine {
+    border-radius: 10px;
+    background: #FFC300;
+    padding: 5px;
+    width: 55%;
+    height: 50px;
+}
+
+
+#select_spec_form #submit_button {
+    border: 0;
+}
+
+#rcorners_symptom {
+    border-radius: 25px;
+    background: #9bf2a7;
+    padding: 20px;
+    width: 240px;
+    height: 50px;
+}
+#rcorners_smell {
+    border-radius: 25px;
+    background: #dee274;
+    padding: 20px;
+    width: 350px;
+    height: 50px;
+}
+
+.radio_item{
+    display: none !important;
+}
+
+.label_item {
+    opacity: 0.2;
+}
+    
+.radio_item:checked + label {
+    opacity: 1;
+}
+
+label {
+    cursor: pointer;   
+}

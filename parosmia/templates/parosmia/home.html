@@ -1,0 +1,18 @@
+{% extends "parosmia/layout.html" %}
+{% block title %}
+    My Parosmia Pet - Home
+{% endblock %}
+
+{% block content %}
+    <h2>Hello there {{myperson.first_name}}. You are logged in as {{myperson.username}}. Please select an option:</h2>
+
+<table width="80%"><tr>
+    <td bgcolor="#ffbb00" width="50%" height="200"><a href="{% url 'about' %}"><h1>About Parosmia</h1></a></td>
+    <td bgcolor="#9bf2a7" width="50%" height="200"><a href="{% url 'resources' %}"><h1>Resources</h1></a></td>
+</tr>
+<tr >
+    <td bgcolor="#fad88e" width="50%" height="200"><a href="{% url 'chat' %}"><h1>Chat with Sufferers</h1></a></td>
+    <td bgcolor="#8793e0" width="50%" height="200"><a href="{% url 'track' %}"><h1>Track your Experiences</h1></a></td>
+</table>
+
+{% endblock %}

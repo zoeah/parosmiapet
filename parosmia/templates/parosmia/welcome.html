@@ -1,0 +1,32 @@
+{% extends "parosmia/layout.html" %}
+    {% block title %}
+    My Parosmia Pet - Welcome
+    {% endblock %}
+
+{% block content %}
+{% load static %}
+<ul class='left'>
+
+    <table border="0"><tr><td><h2>Welcome to Parosmia Pet</h2>
+    <H3>Parosmia is a serious condition which has become increasingly wide spread as a long Covid effect. 
+    Those suffering from the condition struggle with altered sense of smell, which can make everyday tasks traumatic. 
+    <BR>
+    <BR>
+    Parosmia Pet is a ground-breaking website designed exclusively to support and help those who are dealing with the life-altering impact of Parosmia
+    <BR><BR>
+     <ul>
+        <li>Access the latest research and information</li>
+        <li>Chat with fellow sufferers</li>
+        <li>Record and track your experiences</li>
+    </ul>
+    <BR>
+    For those suffering, I wish you a speedy recovery.
+    <BR><BR>
+        <a href="mailto: parosmiapet@hopkinsnet.com" target="_blank">Zoe Hopkins</a>
+    </H3>
+       
+    </ul>
+</td><td>
+    <img class="right" src="{% static 'parosmia/sufferer.png' %}">
+    </td></tr></table>
+{% endblock %}

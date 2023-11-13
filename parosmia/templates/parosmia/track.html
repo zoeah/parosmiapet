@@ -1,0 +1,271 @@
+{% extends "parosmia/layout.html" %}
+    {% block title %}
+    My Parosmia Pet - Experience Tracker
+    {% endblock %}</title>
+
+
+{% block content %}
+{% load static %}
+
+<h2> Welcome to Parosmia Pets Experience Tracker </h2>
+{% if form.errors %}
+{% for field in form %}
+    {% for error in field.errors %}
+        <p> {{ error }} </p>
+    {% endfor %}
+{% endfor %}
+{% endif %}
+
+<table><tr><td>
+<form method="POST" class="Experience">
+        <fieldset>
+            <legend class="black_detail">Mood</legend>
+            {% csrf_token %}
+            <input type="hidden" name="type" value="mood">
+            <p>
+                <label for="id_log_date" class="black_detail">Date:</label>
+                <input type="datetime-local" name="log_date" required id="id_log_date1">
+            </p>
+            <p>
+                <input type="radio" name="rating" class="radio_item" value="1" id="mood1"><label class="label_item" for="mood1"><img alt="Terrible" width="30" src="{% static 'parosmia/1vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="2" id="mood2"><label class="label_item" for="mood2"><img alt="Poor"  width="30" src="{% static 'parosmia/2vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="3" id="mood3"><label class="label_item" for="mood3"><img alt="Average"  width="30" src="{% static 'parosmia/3vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="4" id="mood4"><label class="label_item" for="mood4"><img alt="Good" width="30" src="{% static 'parosmia/4vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="5" id="mood5"><label class="label_item" for="mood5"><img alt="Excellent" width="30" src="{% static 'parosmia/5vsm.png' %}"></label>
+            </p>
+            <div class="right"><button type="send" class="save btn btn-default" align="right">Send</button></div>
+        </fieldset>
+    </form>
+
+    <form method="POST" class="Experience">
+        <details><summary>Log Food & Medication</summary>
+            <fieldset>
+            <legend class="black_detail">Food & Medication</legend>
+            {% csrf_token %}
+            <p>
+                <label for="id_type" class="black_detail">Type:</label>
+                <select id="id_type" name="type" required>
+                    <option value="food">Food</option>
+                    <option value="medication">Medication</option>
+                </select>
+            </p>
+            <p>
+                <label for="id_log_date" class="black_detail">Date:</label>
+                <input type="datetime-local" name="log_date" required id="id_log_date2">
+            </p>
+            <p>
+                <label for="id_quantity" class="black_detail">Quantity:</label>
+                <input type="text" name="quantity" placeholder="eg 1 cup" maxlength="40" required id="id_quantity">
+            </p>
+            <p>
+                <label for="id_description" class="black_detail">Description:</label>
+                <input type="text" name="description" placeholder="eg cup of tea" maxlength="100" required id="id_description">
+            </p>
+            <p>
+                <label for="id_smells_like" class="black_detail">Smells like:</label>
+                <input type="text" name="smells_like" maxlength="100" placeholder="eg garbage" required id="id_smells_like">
+            </p>
+            <p>
+                <input type="radio" name="rating" class="radio_item" value="1" id="food1"><label class="label_item" for="food1"><img alt="Terrible" width="30" src="{% static 'parosmia/1vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="2" id="food2"><label class="label_item" for="food2"><img alt="Poor"  width="30" src="{% static 'parosmia/2vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="3" id="food3"><label class="label_item" for="food3"><img alt="Average"  width="30" src="{% static 'parosmia/3vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="4" id="food4"><label class="label_item" for="food4"><img alt="Good" width="30" src="{% static 'parosmia/4vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="5" id="food5"><label class="label_item" for="food5"><img alt="Excellent" width="30" src="{% static 'parosmia/5vsm.png' %}"></label>
+            </p>
+            <div class="right"><button type="send" class="save btn btn-default" align="right">Send</button></div>
+        </fieldset>
+    </details>
+</form>
+
+    <form method="POST" class="Experience">
+        <details><summary>Log Smell</summary>
+            <fieldset class="black_detail">
+            <legend class="black_detail">Smell</legend>
+            {% csrf_token %}
+            <input type="hidden" name="type" value="smell">
+            <p>
+                <label for="id_log_date" class="black_detail">Date:</label>
+                <input type="datetime-local" name="log_date" required id="id_log_date3">
+            </p>
+            <p>
+                <label for="id_description" class="black_detail">Description:</label>
+                <input type="text" name="description" maxlength="100" required id="id_description">
+            </p>
+            <p>
+                <label for="id_smells_like" class="black_detail">Smells like:</label>
+                <input type="text" name="smells_like" maxlength="100" required id="id_smells_like">
+            </p>
+            <p>
+                <input type="radio" name="rating" class="radio_item" value="1" id="smell1"><label class="label_item" for="smell1"><img alt="Terrible" width="30" src="{% static 'parosmia/1vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="2" id="smell2"><label class="label_item" for="smell2"><img alt="Poor"  width="30" src="{% static 'parosmia/2vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="3" id="smell3"><label class="label_item" for="smell3"><img alt="Average"  width="30" src="{% static 'parosmia/3vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="4" id="smell4"><label class="label_item" for="smell4"><img alt="Good" width="30" src="{% static 'parosmia/4vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="5" id="smell5"><label class="label_item" for="smell5"><img alt="Excellent" width="30" src="{% static 'parosmia/5vsm.png' %}"></label>
+            </p>
+            <div class="right"><button type="send" class="save btn btn-default" align="right">Send</button></div>
+        </details>
+        </fieldset>
+    </form>
+
+    <form method="POST" class="Experience">
+        <details><summary>Log Symptom</summary>
+            <fieldset class="black_detail">
+            <legend>Symptom</legend>
+            {% csrf_token %}
+            <input type="hidden" name="type" value="symptom">
+            <p>
+                <label for="id_log_date" class="black_detail">Date:</label>
+                <input type="datetime-local" name="log_date" required id="id_log_date4">
+            </p>
+            <p>
+                <label for="id_description" class="black_detail">Description:</label>
+                <input type="text" name="description" maxlength="100" required id="id_description">
+            </p>
+            <p>
+                <input type="radio" name="rating" class="radio_item" value="1" id="symptom1"><label class="label_item" for="symptom1"><img alt="Terrible" width="30" src="{% static 'parosmia/1vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="2" id="symptom2"><label class="label_item" for="symptom2"><img alt="Poor"  width="30" src="{% static 'parosmia/2vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="3" id="symptom3"><label class="label_item" for="symptom3"><img alt="Average"  width="30" src="{% static 'parosmia/3vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="4" id="symptom4"><label class="label_item" for="symptom4"><img alt="Good" width="30" src="{% static 'parosmia/4vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="5" id="symptom5"><label class="label_item" for="symptom5"><img alt="Excellent" width="30" src="{% static 'parosmia/5vsm.png' %}"></label>
+            </p>
+            <div class="right"><button type="send" class="save btn btn-default" align="right">Send</button></div>
+        </fieldset>
+        </details>
+    </form>
+
+    <form method="POST" class="Experience">
+        <details><summary>Log Exercise</summary>
+            <fieldset class="black_detail">
+            <legend>Exercise</legend>
+            {% csrf_token %}
+            <input type="hidden" name="type" value="exercise">
+            <p>
+                <label for="id_log_date" class="black_detail">Date:</label>
+                <input type="datetime-local" name="log_date" required id="id_log_date5">
+            </p>
+            <p>
+                <label for="id_quantity" class="black_detail">Quantity:</label>
+                <input type="text" name="quantity" maxlength="40" required id="id_quantity">
+            </p>
+            <p>
+                <label for="id_description" class="black_detail">Description:</label>
+                <input type="text" name="description" maxlength="100" required id="id_description">
+            </p>
+            <p>
+                <input type="radio" name="rating" class="radio_item" value="1" id="exercise1"><label class="label_item" for="exercise1"><img alt="Terrible" width="30" src="{% static 'parosmia/1vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="2" id="exercise2"><label class="label_item" for="exercise2"><img alt="Poor"  width="30" src="{% static 'parosmia/2vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="3" id="exercise3"><label class="label_item" for="exercise3"><img alt="Average"  width="30" src="{% static 'parosmia/3vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="4" id="exercise4"><label class="label_item" for="exercise4"><img alt="Good" width="30" src="{% static 'parosmia/4vsm.png' %}"></label>
+                <input type="radio" name="rating" class="radio_item" value="5" id="exercise5"><label class="label_item" for="exercise5"><img alt="Excellent" width="30" src="{% static 'parosmia/5vsm.png' %}"></label>
+            </p>
+            <div class="right"><button type="send" class="save btn btn-default" align="right">Send</button></div>
+        </fieldset>
+        </details>
+    </form>
+
+
+<script type="text/javascript">//<![CDATA[
+
+        // window.addEventListener("load", function() {
+            var now = new Date();
+            var utcString = now.toISOString().substring(0,19);
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            var localDatetime = year + "-" +
+            (month < 10 ? "0" + month.toString() : month) + "-" +
+            (day < 10 ? "0" + day.toString() : day) + "T" +
+            (hour < 10 ? "0" + hour.toString() : hour) + ":" +
+            (minute < 10 ? "0" + minute.toString() : minute) //+
+            //utcString.substring(16,19);
+            var datetimeField = document.getElementById("id_log_date1");
+            datetimeField.value = localDatetime;
+            var datetimeField = document.getElementById("id_log_date2");
+            datetimeField.value = localDatetime;
+            var datetimeField = document.getElementById("id_log_date3");
+            datetimeField.value = localDatetime;
+            var datetimeField = document.getElementById("id_log_date4");
+            datetimeField.value = localDatetime;
+            var datetimeField = document.getElementById("id_log_date5");
+            datetimeField.value = localDatetime;
+        //});
+        
+        
+          //]]></script>
+
+
+</td><td align="top">&nbsp;&nbsp;&nbsp;
+</td><td align="top">
+    {% load humanize %}
+    <h2> Experience History</h2>
+    {% if Experience_list %}
+        <table class="experience_list">
+            {% for Experience in Experience_list %}
+            <tr><td>
+            <!tbody>
+                {% if Experience.type == "food" %}
+                    <table id="rcorners_food"><tr>
+                        <td align="left"><div class="black_detail"><strong>Food:</strong> {{ Experience.quantity }} x {{ Experience.description }}</div></td>
+                        {% if Experience.smells_like %}<td align="left"><div class="black_detail">Tastes like: {{ Experience.smells_like }}</div></td>{% endif %}
+                        </tr>
+                    </table>
+                    </td><td><img width="50%" height="50%" class="right" src="{% static 'parosmia/' %}{{ Experience.rating }}vsm.png"> 
+                {% elif Experience.type == "mood" %}
+                    <table align="right" id="rcorners_mood">
+                        <tr>
+                            <td align="left"><div class="black_detail"><strong>Mood</strong></div></td>
+                        </tr>
+                    </table>
+                    </td><td><img width="50%" height="50%"   class="right" src="{% static 'parosmia/' %}{{ Experience.rating }}vsm.png"> 
+                    {% elif Experience.type == "medication" %}
+                    <table id="rcorners_meds">
+                        <tr>
+                            <td align="left"><div class="black_detail"><strong>Medication:</strong> {{ Experience.quantity }} x {{ Experience.description }}</div></td>
+                            {% if Experience.smells_like %}<td align="left"><div class="black_detail">Tastes like: {{ Experience.smells_like }}</div></td>{% endif %}                        </tr>
+                    </table>
+                </td><td><img width="50%" height="50%"   class="right" src="{% static 'parosmia/' %}{{ Experience.rating }}vsm.png"> 
+
+                    {% elif Experience.type == "smell" %}
+                    <table id="rcorners_smell">
+                        <tr>
+                            <td align="left"><strong>Smell:</strong> {{ Experience.description }}</td>
+                            {% if Experience.smells_like %}<td align="left">Smells like: {{ Experience.smells_like }}</td>{% endif %}
+                        </tr>
+                    </table>
+                </td><td><img width="50%" height="50%"   class="right" src="{% static 'parosmia/' %}{{ Experience.rating }}vsm.png"> 
+                    {% elif Experience.type == "symptom" %}
+                    <table id="rcorners_symptom">
+                        <tr>
+                            <td align="left"><div class="black_detail"><strong>Symptom:</strong> {{ Experience.description }}</div></td>
+                        </tr>
+                    </table>
+                    </td><td><img width="50%" height="50%"   class="right" src="{% static 'parosmia/' %}{{ Experience.rating }}vsm.png"> 
+                    {% elif Experience.type == "exercise" %}
+                    <table id="rcorners_exercise">
+                        <tr>
+                            <td align="left"><div class="black_detail"><div class="black_detail"><strong>Exercise:</strong> {{ Experience.quantity }} x {{ Experience.description }}</div></div></td>
+                        </tr>
+                    </table>
+                    </td><td><img width="50%" height="50%"   class="right" src="{% static 'parosmia/' %}{{ Experience.rating }}vsm.png"> 
+
+                {% endif %}
+            </td></tr><tr><td align="right" class="right"><div class="black_detail_small">{{ Experience.log_date | naturaltime }}</div</td><td></td></tr>
+            {% endfor %}
+            <!/tbody>
+        </table>
+    {% else %}
+        <p>No experiences have been recorded yet.</p>
+    {% endif %}
+    </td></tr></table>
+    <BR><BR>
+    <BR><BR>
+    <BR><BR>
+                {% endblock %}
+
+
+
+
+
